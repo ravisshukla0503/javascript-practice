@@ -1,0 +1,64 @@
+event buubling is event propogate from child to parent class and thos bydefault
+event capturing is event propgte from parent to child
+stop propagation for capturing and buubling
+event delegation when we have multiple children and we have to add eventlistner to every child then we use event delegation and add event only on parent class using event.target properties do manupulation
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .cont {
+            height:200px;
+            width: 90%;
+            border-style: solid;
+            border-color: red; 
+            padding: 50px;
+        }
+        .subcont {
+            height:150px;
+            width: 80%;
+            border-style: solid;
+            border-color: red; 
+            padding: 25px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="cont">Div       
+        <form class="subcont">
+            form
+            <button class="bttn">
+                click
+            </button>
+        </form>
+    </div>      
+    <script>
+        const div = document.querySelector(".cont");
+        const form = document.querySelector(".subcont")
+        const bttn = document.querySelector(".bttn")
+console.log(bttn)
+        div.addEventListener("click", function(e) {
+            e.stopPropagation();
+            alert("div");
+        },
+        {
+            capture: true
+        })
+        form.addEventListener("click", function() {
+            alert("form");
+        },
+        {
+            capture: true
+        })
+        bttn.addEventListener("click", function() {
+            alert("bttn");
+        },
+        {
+            capture: true
+        })
+    </script>
+</body>
+</html>

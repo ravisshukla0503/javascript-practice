@@ -1,14 +1,15 @@
-// function binds together all the lexical scope enivornment
+// function binds together all the lexical scope enivornment is knows as closure
 
 function z(){
     var a=10;
-    function y(){
+    return function y(){
         var b=100;
-        function x(){
-            console.log(a, b);
+        return function x(){
+            
+            console.log(a+b);
+            return a;
         }
        x();
     }
-    y();
 }
-var print = z();
+console.log(z()()())

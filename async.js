@@ -1,6 +1,4 @@
-// Promise is a javascript object which contains producing code and consuming code
-// In Producing code where you get the result res or rej
-//in consuming code where you wait for a result
+// Promise is a javascript object which handle asynchronus methods
 /*
 const myPromise = new Promise((res, rej) => {
     let x=0;
@@ -16,9 +14,8 @@ myPromise.then(
 */
 
 //Async or Await
-//async is used before function where you get the result in Promise
-// await is used to wait for a promise return
-
+//async keyword allow to use await keyword in the method
+// await is used to wait for a completion of a asynchronus metohod so if any value depend upon that asynchronus result doesnot effec
 const getcountry = async () => {
   const countries = await fetch(
     "https://api.countrystatecity.in/v1/countries",
